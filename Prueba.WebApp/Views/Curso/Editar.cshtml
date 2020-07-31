@@ -1,0 +1,37 @@
+﻿@model Curso
+@{
+    ViewBag.Title = "Nuevo Curso";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center">Editar Curso</h3>
+        <hr />
+    </div>
+    <div class="col-12">
+        @using (Html.BeginForm("Editar", "Curso", FormMethod.Post, new { }))
+        {
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                <label for="Descripcion">Descripción:</label>
+                @Html.TextBoxFor(m => m.Descripcion, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label for="Credito">Credito:</label>
+                @Html.TextBoxFor(m => m.Credito, new { @class = "form-control text-right" })
+            </div>
+            <div class="form-group">
+                <label for="Activo">Activo:</label>
+                @Html.CheckBoxFor(m => m.Activo)
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-success">Actualizar</button>
+                <a href="/Curso/Index" class="btn btn-danger">Cancelar</a>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
